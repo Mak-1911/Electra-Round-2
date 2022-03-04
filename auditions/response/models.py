@@ -13,8 +13,9 @@ class Question(models.Model):
         ('I', 'IMAGE')
     ]
     question_type = models.CharField(max_length=1, choices=types)
-    text = models.TextField(max_length=500)
+    text = models.TextField(max_length=2000)
     image = models.ImageField(upload_to='images/', blank=True)
+    question_url = models.URLField(max_length=400)
 
     def __str__(self):
         return str(self.ques_round)

@@ -260,6 +260,7 @@ button {
                 <div class="form-section">
                     {% for i in questionlist %}
                         <label for="name">{{ i.round }}</label>
+                        <a>question url : {{i.question_url}}</a>
                         <label for="name">{{ i.text |linebreaks}}</label>
                         {% if i.type == 'I' %}
                             <img style="heigth:300px;width:200px;" src="{{ i.image.url }}">

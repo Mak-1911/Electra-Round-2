@@ -50,8 +50,11 @@
           line-height: 1.4em;
           font-weight: 400;
           color: white;
-            background: url("https://wallpapercave.com/wp/c0MaGGu.jpg") ;
-            background-size: contain;
+          background: url("https://wallpaperaccess.com/full/85816.gif");
+          background-size: cover;
+          position: center;
+          
+      
       }
 
       ::placeholder, select{
@@ -227,13 +230,14 @@
           display: flex;
           justify-content: center;
           align-items: center;
-          height: 250px !important;
+          height:80px !important;
           width: 250px !important;
           border: 5px solid white;
-          border-radius: 50% !important;
+          border-radius: 10px!important;
           background-image: linear-gradient(19deg, #0ea0aa 0%, #4f08a1 100%);
           background-size: 400% 400%;
           animation: gradient 2s ease infinite;
+          padding: 10px;
       }
 
       #demo{
@@ -247,7 +251,7 @@
       @media (max-width: 500px)
       {
           .timer-upper{
-            height: 200px !important;
+            height: 70px !important;
             width: 200px !important;
           }
           #demo{
@@ -259,7 +263,7 @@
 
       .question-card{
           content: "";
-          background:linear-gradient(to right, #000428, #004e92);
+          background-color:#034038;
           {% comment %} border: 4px solid transparent;
           border-image: linear-gradient(to right, #000046, #1cb5e0);
           border-image-slice: 1; {% endcomment %}
@@ -285,7 +289,6 @@
           background-size: 400% 400%;
           animation: gradient 2s ease infinite;
           cursor: pointer;
-          border-radius: 10px;
       }
 
         @keyframes gradient {
@@ -298,6 +301,9 @@
       	100% {
       		background-position: 0% 50%;
       	}
+      }
+      .card_image {
+        width:90%;
       }
     </style>
   </head>
@@ -320,6 +326,20 @@
         <br>
         <input name="submit" type="submit">
 	</form>-->
+  <div class="question-card">
+    <h2>SITUATION</h2>
+    <label>
+      James is a scientist working at a secret underground location in the Sahara Desert. 
+      The location is secured by an advanced security system. One day a systematic failure occurred and an explosion took place.
+       The scientist now has to run and steer his way out of this location by overcoming four locked doors. He finds a tape recorder
+        in the security cabin. The tape recorder contains clues about opening the 4 locked doors which will help him to come out into 
+        the Sahara Desert and also from this dangerous situation. But he cannot do it alone, he needs your assistance in solving the puzzle 
+        to open the locked doors. So are you ready to help him ? 
+        <br><br>
+*here each logic gate is denoted by the word "terminal"
+
+    </label>
+  </div>
 
     <form method="post" action="">
       {% csrf_token %}
@@ -328,11 +348,27 @@
 
         <div class="question-card">
           <label for="name"> {{ i.text|linebreaks }}</label>
+          {% if i.round == 1 %} 
+          <img class="card_image" src="{% static 'media/images/ques1.png' %}"><br>
+          <a href="https://tinyurl.com/yab9gbm7" target="_blank">SIMULATION LINK</a>
+          {% elif i.round == 2 %} 
+          <img class="card_image" src="{% static 'media/images/ques2.png' %}">
+          <br>
+          <a href="https://tinyurl.com/yat3sjuv" target="_blank">SIMULATION LINK</a>
+          {% elif i.round == 3 %} 
+          <img class="card_image" src="{% static 'media/images/ques3.png' %}"><br>
+          <a href="https://tinyurl.com/y7wwvvc5" target="_blank">SIMULATION LINK</a>
+          {% elif i.round == 4 %} 
+          <img class="card_image" src="{% static 'media/images/ques4.png' %}"><br>
+          <a href="https://tinyurl.com/yb3c6e53" target="_blank">SIMULATION LINK</a>
+          {% endif %}
           <hr />
+          
 
           <div class="msg">
-            <textarea placeholder="Answer" name={{" i.round "}}></textarea>
+            <textarea placeholder="Answer" name="{{ i.round }}"></textarea>
           </div>
+          <hr />
         </div>
         {% endfor %}
         <div class="container btn-submit">

@@ -264,7 +264,8 @@ button {
                     {% for i in questionlist %}
                         <label for="name">{{ i.round }}</label>
                         <label for="name">{{ i.text|linebreaks}}</label>
-                        {% if i.type == 'I' %}
+                        <a>{{i.question_url}}</a>
+                        {% if i.round == 1 %}
                             <img style="heigth:300px;width:200px;" src="{{ i.image.url }}">
                         {% endif %}
 

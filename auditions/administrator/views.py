@@ -23,6 +23,7 @@ def response_detail(request,id):
         comment_obj = Comment(profile = profile)
         comment_obj.author = request.POST['author']
         comment_obj.comment = request.POST['comment']
+        comment_obj.score = request.POST['score']
         to_eliminate = request.POST.get('eliminate')
         comment_obj.save()
         profile.current_status = 2
@@ -37,3 +38,7 @@ def response_detail(request,id):
     data['profile'] = profile
     data['response'] = response
     return render(request,'administrator/detail.html',{'data':data})
+
+def leaderboard(request):
+    c = Comment.objects.all()
+    return render(request,'administrator/leaderboard.html',{'c':c})

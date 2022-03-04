@@ -44,7 +44,11 @@
     </div>
     <div class="mb-3">
       <label for="exampleInputPassword1" class="form-label">Review</label>
-      <textarea id = "commentfield" class="form-control" rows="4" name="comment" placeholder="Your Comment Here .."></textarea>
+      <textarea id = "commentfield" class="form-control" rows="4" name="comment" placeholder="Your Comment Here .."></textarea><br>
+      <small class="form-text text-muted">
+        Please Enter the Score :
+      </small>
+      <input type="number" id="quantity" name="score" min="1" max="20">
     </div>
     <div class="form-group form-check">
       <input type="checkbox" class="form-check-input" name="eliminate">
@@ -53,6 +57,7 @@
         If you check this box this participant will be permanently eliminated.
       </small>
     </div>
+
     <button id="button" type="submit" class="btn btn-primary">Submit Review</button>
   </form>
   <h3>Past Reviews</h3>

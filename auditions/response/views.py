@@ -5,6 +5,7 @@ from .models import Response
 
 from .models import Question,Response
 from accounts.models import Profile
+from administrator.models import Comment
 
 # Create your views here.
 @login_required(login_url='/accounts/login/')
@@ -76,4 +77,7 @@ def questions(request):
 def allparticipants(request):
     return render(request,'response/allparticipants.html')
 
+def leaderboard(request):
+    c = Comment.objects.all()
+    return render(request,'response/leaderboard.html',{'c':c})
 

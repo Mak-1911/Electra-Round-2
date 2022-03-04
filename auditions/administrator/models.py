@@ -8,4 +8,5 @@ class Comment(models.Model):
     author = models.CharField(max_length=100)
     comment = models.TextField()
     date_time = models.DateTimeField(auto_now_add=True)
+    score = models.IntegerField(default=0)
     
